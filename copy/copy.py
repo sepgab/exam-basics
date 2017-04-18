@@ -25,6 +25,8 @@ class Controller():
     def manager(self):
         if len(self.list_argv) == 0:
             print('copy [source] [destination]')
+        elif len(self.list_argv) == 1:
+            print('No destination provided')
         else:
             pass
 
