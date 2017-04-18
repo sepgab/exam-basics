@@ -13,4 +13,3 @@ def odd_average(list_of_numbers):
     if counter_odd > 0:
         average_odd = sum_odd / counter_odd
     return average_odd
-    
