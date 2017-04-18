@@ -62,6 +62,14 @@ class Deck():
                 else:
                     self.number_of_spades += 1
 
+    def shuffle(self):
+        self.temp_deck = []
+        while self.list_of_cards != []:
+            self.random_card = random.choice(self.list_of_cards)
+            self.temp_deck.append(self.random_card)
+            self.list_of_cards.remove(self.random_card)
+        self.list_of_cards = self.temp_deck
+
     def __str__(self):
         result = ""
         result = str(self.number_of_cards) + ' cards -  ' + str(self.number_of_clubs) + ' Clubs, ' + str(self.number_of_diamonds) + ' Diamonds, ' + str(self.number_of_hearts) + ' Hearts, ' + str(self.number_of_spades) + ' Spades'
@@ -70,3 +78,5 @@ class Deck():
 deck = Deck(12)
 
 print(deck)
+
+deck.shuffle()
