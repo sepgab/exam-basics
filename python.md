@@ -36,14 +36,14 @@ The application is accepted if:
 
 #### Your answer:
 [add your answer here]   
-1:   
-2:   
-3:   
-4:   
-5:   
-6:   
-7:   
+1: Signature
+2: Name
+3: Parameter(s)
+4: Body
+5: Local variable
+6: Return statement
+7: Return value
 
 ### What is the constructor? When it is used? [2p]
 #### Your answer:
-[add your answer here]
+[The constructor is the first method called when we instantiate or create a new instance of an object of a given class. It is used when we want to initialize variables which are to be used afterwards by different methods and functions, or if we want the object to have initial properties.]
