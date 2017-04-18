@@ -1,0 +1,5 @@
+This is just a test .txt file for our brand new copier application.
+
+Find me on GitHub: my handle is sepgab
+
+Have a nice day!

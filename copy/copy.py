@@ -8,6 +8,7 @@
 # Read all contents from it and write it to the destination
 
 import sys
+import os
 
 class Controller():
 
@@ -27,7 +28,19 @@ class Controller():
             print('copy [source] [destination]')
         elif len(self.list_argv) == 1:
             print('No destination provided')
+        elif len(self.list_argv) == 2:
+            try:
+                self.file_to_copy = open(self.list_argv[0], 'r')
+            except FileNotFoundError:
+                print('Source file doesn\'t exist!')
+                return
+            self.file_content = self.file_to_copy.readlines()
+            self.file_copied = open(self.list_argv[1], 'w')
+            for element in self.file_content:
+                self.file_copied.write(element)
+            self.file_to_copy.close()
+            self.file_copied.close()
         else:
-            pass
+            print('Two arguments are needed e.g: \npython copy.py test.txt test_copied.txt/')
 
 controller = Controller()
