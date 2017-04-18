@@ -70,9 +70,23 @@ class Deck():
             self.list_of_cards.remove(self.random_card)
         self.list_of_cards = self.temp_deck
 
+    def draw(self):
+        self.top_card = self.list_of_cards[0]
+        self.list_of_cards = self.list_of_cards[1:]
+        self.counter_cards -= 1
+        if self.top_card.split()[1] == 'Clubs':
+            self.number_of_clubs -= 1
+        elif self.top_card.split()[1] == 'Diamonds':
+            self.number_of_diamonds -= 1
+        elif self.top_card.split()[1] == 'Hearts':
+            self.number_of_hearts -= 1
+        else:
+            self.number_of_spades -= 1
+        return self.top_card
+
     def __str__(self):
         result = ""
-        result = str(self.number_of_cards) + ' cards -  ' + str(self.number_of_clubs) + ' Clubs, ' + str(self.number_of_diamonds) + ' Diamonds, ' + str(self.number_of_hearts) + ' Hearts, ' + str(self.number_of_spades) + ' Spades'
+        result = str(self.counter_cards) + ' cards -  ' + str(self.number_of_clubs) + ' Clubs, ' + str(self.number_of_diamonds) + ' Diamonds, ' + str(self.number_of_hearts) + ' Hearts, ' + str(self.number_of_spades) + ' Spades'
         return result
 
 deck = Deck(12)
@@ -80,3 +94,7 @@ deck = Deck(12)
 print(deck)
 
 deck.shuffle()
+
+top_card = deck.draw()
+print(top_card)
+print(deck)
