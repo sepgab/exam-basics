@@ -48,9 +48,33 @@ class Deck():
         self.upload()
 
     def upload(self):
-        while self.counter_cards < self.number_of_cards:
+        if self.number_of_cards < 4:
+            self.upload_first_4_cards(self.number_of_cards)
+        else:
+            self.upload_first_4_cards(4)
+            while self.counter_cards < self.number_of_cards:
+                self.to_add = Card()
+                if self.to_add.card not in self.list_of_cards:
+                    self.list_of_cards.append(self.to_add.card)
+                    self.counter_cards += 1
+                    if self.to_add.color == 'Clubs':
+                        self.number_of_clubs += 1
+                    elif self.to_add.color == 'Diamonds':
+                        self.number_of_diamonds += 1
+                    elif self.to_add.color == 'Hearts':
+                        self.number_of_hearts += 1
+                    else:
+                        self.number_of_spades += 1
+
+    def upload_first_4_cards(self, number):
+        self.number = number
+        while self.counter_cards < self.number:
             self.to_add = Card()
-            if self.to_add.card not in self.list_of_cards:
+            self.add_condition = True
+            for card in self.list_of_cards:
+                if card.split()[1] == self.to_add.color:
+                    self.add_condition = False
+            if self.to_add.card not in self.list_of_cards and self.add_condition == True:
                 self.list_of_cards.append(self.to_add.card)
                 self.counter_cards += 1
                 if self.to_add.color == 'Clubs':
