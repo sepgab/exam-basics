@@ -21,9 +21,32 @@
 # Queen Spades
 # 11 cards - 3 Clubs, 3 Diamonds, 3 Hearts, 2 Spades
 
+import random
+
+list_of_colors = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+list_of_values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+
 class Card():
 
-    def __init__(self, color, value):
-        self.color = color
-        self.value = value
-        print(str(self.value) + ' ' + str(self.color))
+    def __init__(self):
+        self.color = random.choice(list_of_colors)
+        self.value = random.choice(list_of_values)
+        self.card = str(self.value) + ' ' + str(self.color)
+        return self.card
+
+class Deck():
+
+    def __init__(self, number_of_cards):
+        self.number_of_cards = int(number_of_cards)
+        self.card_to_add = None
+        self.list_of_cards = []
+        self.counter_cards = 0
+        while self.counter_cards < self.number_of_cards:
+            self.card_to_add = Card()
+            if self.card_to_add not in self.list_of_cards:
+                self.list_of_cards.append(card_to_add)
+                self.counter_cards += 1
+
+deck = Deck(12)
+
+print(deck)
